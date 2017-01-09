@@ -1,4 +1,4 @@
-# R codel for Data Science Challenge: Trips.
+
 
 #download and load the trip data for September 2015 to local des
 URL <- "https://s3.amazonaws.com/nyc-tlc/trip+data/green_tripdata_2015-09.csv"
