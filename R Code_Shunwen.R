@@ -1,6 +1,5 @@
 # R codel for Data Science Challenge: Trips.
 
-#Question 1
 #download and load the trip data for September 2015 to local des
 URL <- "https://s3.amazonaws.com/nyc-tlc/trip+data/green_tripdata_2015-09.csv"
 destfile <- "C:/Users/Cathy/Downloads/green_tripdata_2015-09.csv"
@@ -14,7 +13,7 @@ names(N_obs) <- "number of rows"
 N_col<-ncol(green_tripdata)
 names(N_col) <- "number of columns"
 
-#Question 2
+
 # Quick look at the statistical summary of trip distance
 y=green_tripdata$Trip_distance
 cat("statistical summary of trip distance")
@@ -36,7 +35,7 @@ library(fitdistrplus)
 fit.lnorm <- fitdist(y[y>0 & y<100], "lnorm", method = c("mge"))
 plot(fit.lnorm)
 
-#Question 3
+
 # change the type of datetime to POSIXct objects
 library(lubridate)
 green_tripdata$lpep_pickup_datetime <- ymd_hms(green_tripdata$lpep_pickup_datetime)
@@ -58,7 +57,7 @@ ap_hour<-subset(green_tripdata,RateCodeID  %in% c(2,3))$Travel_hour
 cat("count of trips in different hour in a day")
 summary(ap_hour)
 
-#Question 4
+
 # Data cleaning
 # correct the type of data
 green_tripdata$VendorID <- as.factor(green_tripdata$VendorID)
@@ -121,7 +120,7 @@ mse[3] <- mean((pred_rf - green_tripdata_pre[-train,"Tip_percentage"])^2)
 names(mse) <- c("LinReg","Tree", "RForrest")
 mse
 
-#Question 5
+
 #function find distance between two points with lat and long
 dist <- function (long1, lat1, long2, lat2)
 {
